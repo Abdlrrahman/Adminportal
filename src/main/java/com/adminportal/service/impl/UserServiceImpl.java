@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 import com.adminportal.domain.User;
-import com.adminportal.domain.security.PasswordResetToken;
 import com.adminportal.domain.security.UserRole;
 import com.adminportal.repository.RoleRepository;
 import com.adminportal.repository.UserRepository;

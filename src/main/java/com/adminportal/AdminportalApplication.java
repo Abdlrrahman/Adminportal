@@ -1,4 +1,4 @@
-package com.adminportal.adminportal;
+package com.adminportal;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,14 +14,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {
 		org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class })
-@ComponentScan("com.adminportal.controller")
-@EntityScan("com.adminportal.domain")
 public class AdminportalApplication implements CommandLineRunner {
 
 	@Autowired
