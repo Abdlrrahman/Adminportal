@@ -23,7 +23,7 @@
                 <div class="form-group row">
                     <label for="title">* Title</label>
                     <input type="text" class="form-control" id="title" placeholder="Title" required="required"
-                        th:value="@{book.title}" name="title" />
+                        th:value="${book.title}" name="title" />
                     <span class="text-muted">Title of the book</span>
                 </div>
 
@@ -31,7 +31,7 @@
                 <div class="form-group row">
                     <label for="author">* Author</label>
                     <input type="text" class="form-control" id="author" placeholder="Author" required="required"
-                        th:value="@{book.author}" name="author" />
+                        th:value="${book.author}" name="author" />
                     <span class="text-muted">Author of the book</span>
                 </div>
 
@@ -39,7 +39,7 @@
                 <div class="form-group row">
                     <label for="publisher">Publisher</label>
                     <input type="text" class="form-control" id="publisher" placeholder="Publisher"
-                        th:value="@{book.publisher}" name="publisher" />
+                        th:value="${book.publisher}" name="publisher" />
                     <span class="text-muted">publisher of the book</span>
                 </div>
 
