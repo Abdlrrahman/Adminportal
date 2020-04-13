@@ -43,6 +43,7 @@ public class BookController {
             String name = book.getId() + ".png";
             BufferedOutputStream stream = new BufferedOutputStream(
                     new FileOutputStream(new File("src/main/resources/static/image/book/" + name)));
+            stream.write(bytes);
             stream.close();
         } catch (Exception e) {
             e.printStackTrace();
