@@ -87,7 +87,7 @@
                 <div class="form-group row">
                     <label for="numberOfPages">Number Of Pages</label>
                     <input type="number" class="form-control" id="numberOfPages" placeholder="Number Of Pages"
-                        th:value="@{book.numberOfPages}" name="numberOfPages" />
+                        th:value="${book.numberOfPages}" name="numberOfPages" />
                     <span class="text-muted">Number of pages of the book</span>
                 </div>
 
@@ -105,7 +105,7 @@
                 <!-- isbn -->
                 <div class="form-group row">
                     <label for="isbn">ISBN</label>
-                    <input type="number" class="form-control" id="isbn" placeholder="ISBN" th:value="@{book.isbn}"
+                    <input type="number" class="form-control" id="isbn" placeholder="ISBN" th:value="${book.isbn}"
                         name="isbn" />
                     <span class="text-muted">ISBN of the book</span>
                 </div>
@@ -116,7 +116,7 @@
                     <div class="col-8">
                         <div class="input-group-text">
                             <input type="number" class="form-control" id="shippingWeight" placeholder="Shipping Weight"
-                                th:value="@{book.shippingWeight}" name="shippingWeight" />
+                                th:value="${book.shippingWeight}" name="shippingWeight" />
                             <span class="input-group-prepend col-2">Ounces</span>
                         </div>
                         <span class="text-muted">Shipping Weight of the book</span>
@@ -164,7 +164,8 @@
                 <div class="form-group row">
                     <label class="col-2" for="status">Status</label>
                     <div class="col-8">
-                        <label><input type="radio" class="form-control" value="true" name="active" />Active</label>
+                        <label><input type="radio" class="form-control" value="true" name="active"
+                                checked="checked" />Active</label>
                         <label><input type="radio" class="form-control" value="false" name="active" />Inactive</label>
                         <div><span class="text-muted">Whether the book is active or inactive</span></div>
                     </div>
