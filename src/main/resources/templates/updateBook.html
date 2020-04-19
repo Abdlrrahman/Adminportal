@@ -17,6 +17,7 @@
                 <center>
                     <legend class="mx-auto"><b>update Book Information </b></legend>
                     <span style="font-size: small;">* is a required field</span>
+                    <input hidden="hidden" name="id" th:value="${book.id}" />
                 </center>
 
                 <!-- title -->
@@ -116,7 +117,7 @@
                     <div class="col-8">
                         <div class="input-group-text">
                             <input type="number" class="form-control" id="shippingWeight" placeholder="Shipping Weight"
-                                th:value="${book.shippingWeight}" name="shippingWeight" />
+                                th:value="${book.shippingWeight}" name="shippingWeight" step="0.01" />
                             <span class="input-group-prepend col-2">Ounces</span>
                         </div>
                         <span class="text-muted">Shipping Weight of the book</span>
@@ -130,7 +131,7 @@
                         <div class="input-group-text">
                             <span class="input-group-prepend col-1">$</span>
                             <input type="number" class="form-control" id="listPrice" placeholder="List Price"
-                                th:value="${book.listPrice}" name="listPrice" />
+                                th:value="${book.listPrice}" name="listPrice" step="0.01" />
                         </div>
                         <span class="text-muted">List price of the book</span>
                     </div>
@@ -143,7 +144,7 @@
                         <div class="input-group-text">
                             <span class="input-group-prepend col-1">$</span>
                             <input type="number" class="form-control" id="ourPrice" placeholder="Our Price"
-                                th:value="${book.ourPrice}" name="ourPrice" />
+                                th:value="${book.ourPrice}" name="ourPrice" step="0.01" />
                         </div>
                         <span class="text-muted">Our price of the book</span>
                     </div>

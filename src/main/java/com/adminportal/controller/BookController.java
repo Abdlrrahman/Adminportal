@@ -3,6 +3,8 @@ package com.adminportal.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +80,7 @@ public class BookController {
             try {
                 byte[] bytes = bookImage.getBytes();
                 String name = book.getId() + ".png";
+                Files.delete(Paths.get("src/main/resources/static/image/book/" + name));
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(new File("src/main/resources/static/image/book/" + name)));
                 stream.write(bytes);
@@ -86,7 +89,7 @@ public class BookController {
                 e.printStackTrace();
             }
         }
-        return "redirect:book/bookInfo?id=" + book.getId();
+        return "redirect:/book/bookInfo?id=" + book.getId();
     }
 
     @RequestMapping("/bookList")
