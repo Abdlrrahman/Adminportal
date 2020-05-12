@@ -1,2 +1,2 @@
 # Adminportal
-Admin Dashboard for the book store eCommerce website
+Admin Dashboard for the Happy's Bookstore eCommerce website
