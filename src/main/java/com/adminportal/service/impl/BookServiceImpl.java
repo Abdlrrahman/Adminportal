@@ -30,4 +30,10 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public void removeById(long id) {
+        bookRepository.deleteById(id);
+
+    }
+
 }
