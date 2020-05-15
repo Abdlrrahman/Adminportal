@@ -34,8 +34,8 @@
                         <td th:text="${book.active}"></td>
                         <td>
                             <input hidden="hidden" name="id" th:value="${book.id}" />
-                            <button th:id="oneBook-+${book.id}" class="btn btn-danger btn-sm delete-book" type="submit"
-                                value="delete">
+                            <button th:id="'oneBook-'+${book.id}" class="btn btn-danger btn-sm delete-book"
+                                type="submit" value="delete">
                                 <span class="fa fa-times"> Delete</span>
                             </button>
                         </td>
