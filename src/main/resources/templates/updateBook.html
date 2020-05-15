@@ -165,9 +165,9 @@
                 <div class="form-group row">
                     <label class="col-2" for="status">Status</label>
                     <div class="col-8">
-                        <label><input type="radio" class="form-control" value="true" name="active"
-                                checked="checked" />Active</label>
-                        <label><input type="radio" class="form-control" value="false" name="active" />Inactive</label>
+                        <label><input value="true" type="radio" name="active" th:checked="${book.active}" /> Active
+                        </label> <label><input value="false" type="radio" name="active" th:checked="${!book.active}" />
+                            Inactive </label>
                         <div><span class="text-muted">Whether the book is active or inactive</span></div>
                     </div>
                 </div>
