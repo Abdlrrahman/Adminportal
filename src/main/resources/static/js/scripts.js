@@ -1,37 +1,81 @@
-function checkBillingAddress() {
-    if ($("#theSameAsShippingAddress")) {
-        $(".billingAddress").prop("disabled", true);
-    } else {
-        $(".billingAddress").prop("disabled", false);
-    }
-}
-
-function checkPasswordMatch() {
-    var password = $("#txtNewPassword").val();
-    var confirmPassword = $("#txtConfirmPassword").val();
-
-    if (password == "" && confirmPassword == "") {
-        $("#checkPasswordMatch").html("");
-        $("#updateUserInfoButton").prop("disabled", false);
-    } else {
-        if (password != confirmPassword) {
-            $("#checkPasswordMatch").html("Passwords do not match!");
-            $("#updateUserInfoButton").prop("disabled", true);
-        } else {
-            $("#checkPasswordMatch").html("Passwords match");
-            $("#updateUserInfoButton").prop("disabled", false);
-        }
-    }
-}
-
 $(document).ready(function () {
-    $('.cartItemQty').on('change', function () {
-        var id = this.id;
-        $('#update-item-' + id).css('display', 'inline-block');
+    $('.delete-book').on('click', function (e) {
+        /*<![CDATA[*/
+        var path = /*[[@{/}]]*/'remove';
+        /*]]>*/
+        var id = $(this).attr('id');
+
+        bootbox.confirm({
+            message: "Are you sure you want to remove this book?",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (confirmed) {
+                if (confirmed) {
+                    $.post(path, { 'id': id }, function (result) {
+                        location.reload();
+                    });
+                }
+            }
+        });
     });
 
-    $("#theSameAsShippingAddress").on("click", checkBillingAddress);
-    $("#txtNewPassword").keyup(checkPasswordMatch);
-    $("#txtConfirmPassword").keyup(checkPasswordMatch);
+    var bookIdList = [];
 
+    $('.checkboxBook').click(function () {
+        var id = $(this).attr('id');
+        if (this.checked) {
+            bookIdList.push(id);
+        }
+        else {
+            bookIdList.splice(bookIdList.indexOf(id), 1);
+        }
+    })
+
+    $('#deleteSelected').click(function () {
+        /*<![CDATA[*/
+        var path = /*[[@{/}]]*/'removeList';
+        /*]]>*/
+
+        bootbox.confirm({
+            message: "Are you sure you want to remove all selected books?",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (confirmed) {
+                if (confirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: path,
+                        data: JSON.stringify(bookIdList),
+                        contentType: "application/json",
+                        success: function (res) { console.log(res); location.reload(); },
+                        error: function (res) {
+                            console.log(res);
+                            location.reload();
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    $("#selectAllBooks").click(function () {
+        if ($(this).prop("checked") == true) {
+            $('.checkboxBook').click();
+        }
+        else if ($(this).prop("checked") == false) {
+            $('.checkboxBook').click();
+        }
+    });
 });

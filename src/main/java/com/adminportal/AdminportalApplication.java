@@ -32,9 +32,9 @@ public class AdminportalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// User user1 = new User();
-		// user1.setUsername("admin");
+		// user1.setUsername("1admin");
 		// user1.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
-		// user1.setEmail("admin@gmail.com");
+		// user1.setEmail("admin1@gmail.com");
 		// Set<UserRole> userRoles = new HashSet<>();
 		// Role role1 = new Role();
 		// role1.setRoleId(0);
